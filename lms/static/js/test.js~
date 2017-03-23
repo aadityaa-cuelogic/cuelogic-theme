@@ -1,0 +1,9 @@
+/**
+ * custom js utility.
+ */
+
+
+(function($, _) {
+    'use strict';
+
+})(jQuery, _);
