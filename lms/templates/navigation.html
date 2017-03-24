@@ -60,7 +60,8 @@ site_status_msg = get_site_status_msg(course_id)
   <header id="global-navigation" class="header-global ${"slim" if course else ""}" >
     <nav class="wrapper-header" aria-label="${_('Global')}">
       <h1 class="logo">
-      <a href="${marketing_link('ROOT')}">
+<!--       ${marketing_link('ROOT')} root value is #
+ -->      <a href="/dashboard">
 	<%block name="navigation_logo">
 	<%
 	logo_url = get_enterprise_customer_logo_url(request)
@@ -91,9 +92,19 @@ site_status_msg = get_site_status_msg(course_id)
       <ol class="left nav-global list-inline authenticated">
 	  <%block name="navigation_global_links_authenticated">
 	% if settings.FEATURES.get('COURSES_ARE_BROWSABLE') and not show_program_listing:
-	<li class="item nav-global-01">
-	  <a href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
-	</li>
+	<!-- <li class="item nav-global-01"><a href="${marketing_link('COURSES')}">${_('Explore courses')}</a></li> -->
+	<li class="item nav-global-01"><a href="${marketing_link('ABOUT')}" class="active">About</a></li>
+    <li class="item nav-global-01"><a href="${marketing_link('EXPERTISE')}">Expertise</a></li>
+    <li class="item nav-global-01"><a href="${marketing_link('CASE')}">Case Studies</a></li>
+    <li class="item nav-global-01"><a href="${marketing_link('BLOG')}" target="_blank">Blog</a></li>
+    <li class="item nav-global-01"><a href="${marketing_link('CAREERS')}">Careers</a></li>
+    <li class="item nav-global-01"><a href="${marketing_link('CONTACT')}">Contact</a></li>
+	<div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav pull-right">
+        
+    </ul>
+	</div>
+
 	% endif
 	  % if show_program_listing:
 	    <li class="tab-nav-item">
